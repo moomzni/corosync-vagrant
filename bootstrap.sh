@@ -8,11 +8,13 @@ if [ ! -f /etc/bootstrapped ]; then
   apt-get -qq update && apt-get -qq install -y wget
 
   cd /tmp
-  wget -nc -nv http://apt.puppetlabs.com/puppetlabs-release-precise.deb && dpkg -i puppetlabs*.deb
+  wget --quiet http://apt.puppetlabs.com/puppetlabs-release-precise.deb && dpkg -i puppetlabs*.deb > /dev/null
 
-  apt-get -qq update && apt-get -qq install -y puppet-common
+  apt-get -qq update && apt-get -qq install -y puppet-common > /dev/null
 
   touch /etc/bootstrapped
+else
+  echo Skipping Bootstrap
 fi
 echo Copying Puppet Files
 cp -Rv /vagrant/puppet/modules /vagrant/puppet/manifests /etc/puppet
