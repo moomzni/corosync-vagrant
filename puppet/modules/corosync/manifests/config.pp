@@ -1,9 +1,8 @@
 class corosync::config(
-  $conf_dir       = $corosync::params::conf_dir,
-  $local_ip       = $corosync::params::local_ip,
+  $conf_dir       = '/etc/corosync',
+  $auth_enabled   = false,
   $multicast_ip   = $corosync::params::multicast_ip,
   $multicast_port = $corosync::params::multicast_port,
-  $auth_enabled   = false,
 ){
 
   File{

@@ -13,7 +13,7 @@ totem {
   threads:                             0
   interface {
     ringnumber:  0
-    bindnetaddr: <%= @local_ip %>
+    bindnetaddr: <%= @ipaddress_eth1 %>
     mcastaddr:   <%= @multicast_ip %>
     mcastport:   <%= @multicast_port %>
   }
